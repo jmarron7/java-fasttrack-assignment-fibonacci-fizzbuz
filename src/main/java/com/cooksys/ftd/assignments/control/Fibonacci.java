@@ -59,6 +59,7 @@ public class Fibonacci {
      *                                  given end is less than the given start
      */
     public static int[] slice(int start, int end) throws IllegalArgumentException {
+        // Excluded conditional check for "end < 0" as it is redundant and covered by the other checks
         if (start < 0 || end < start) {
             throw new IllegalArgumentException();
         }
@@ -82,9 +83,9 @@ public class Fibonacci {
      * @throws IllegalArgumentException if the given count is negative
      */
     public static int[] fibonacci(int count) throws IllegalArgumentException {
-        if (count > 0) {
-            throw new MissingImplementationException();
-        }
-        throw new MissingImplementationException();
+        // no need to create extra int[] fibonacci as slice() returns an int[] for us
+        // int[] fibonacci = slice(0, count);
+        // exception handling happens inside of slice()
+        return slice(0, count);
     }
 }
