@@ -24,7 +24,28 @@ public class Fibonacci {
      * @throws IllegalArgumentException if the given index is less than zero
      */
     public static int atIndex(int i) throws IllegalArgumentException {
-        throw new MissingImplementationException();
+        if (i < 0) {
+            throw new IllegalArgumentException();
+        }
+
+        if (i == 0 || i == 1) {
+            return 1;
+        } else {
+            // setting base case for first 2 numbers in fibonacci sequence
+            // using a "3-pointer"-like approach
+            int prev1 = 1;
+            int prev2 = 1;
+            int sum = 2;
+
+            // using i1 as loop counter as "i" is already used as parameter
+            // iteratively loops up to "i" to find the correct 2 numbers to sum together
+            for (int i1 = 2; i1 <= i; i1++) {
+                sum = prev1 + prev2;
+                prev1 = prev2;
+                prev2 = sum;
+            }
+            return sum;
+        }
     }
 
     /**
@@ -38,7 +59,7 @@ public class Fibonacci {
      *                                  given end is less than the given start
      */
     public static int[] slice(int start, int end) throws IllegalArgumentException {
-        throw new MissingImplementationException();
+
     }
 
     /**
@@ -49,6 +70,8 @@ public class Fibonacci {
      * @throws IllegalArgumentException if the given count is negative
      */
     public static int[] fibonacci(int count) throws IllegalArgumentException {
-        throw new MissingImplementationException();
+        if (count > 0) {
+            throw new MissingImplementationException();
+        }
     }
 }
