@@ -59,7 +59,19 @@ public class Fibonacci {
      *                                  given end is less than the given start
      */
     public static int[] slice(int start, int end) throws IllegalArgumentException {
+        if (start < 0 || end < start) {
+            throw new IllegalArgumentException();
+        }
 
+        if (end == start) {
+            return new int[0]; // edge case not handled by Exception or parameter definitions
+        }
+
+        int[] slice = new int[end - start];
+        for (int i = 0; i < end - start; i++) {
+            slice[i] = atIndex(i + start);
+        }
+        return slice;
     }
 
     /**
@@ -73,5 +85,6 @@ public class Fibonacci {
         if (count > 0) {
             throw new MissingImplementationException();
         }
+        throw new MissingImplementationException();
     }
 }
