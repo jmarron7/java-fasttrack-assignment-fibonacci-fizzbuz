@@ -27,7 +27,11 @@ public class FizzBuzz {
      * @throws IllegalArgumentException if b is zero
      */
     public static boolean divides(int a, int b) throws IllegalArgumentException {
-        throw new MissingImplementationException();
+        if (b == 0) {
+            throw new IllegalArgumentException();
+        }
+
+        return (a % b == 0);
     }
 
     /**
@@ -42,7 +46,22 @@ public class FizzBuzz {
      * @return a message according to the format above, or null if n is not divisible by either 3 or 5
      */
     public static String message(int n) {
-        throw new MissingImplementationException();
+        String msg = "";
+
+        if (n % 3 == 0) {
+            msg += "Fizz";
+        }
+
+        if (n % 5 == 0) {
+            msg += "Buzz";
+        }
+
+        if (msg.isEmpty()) {
+            return null;
+        }
+
+        return (n + ": " + msg);
+
     }
 
     /**
